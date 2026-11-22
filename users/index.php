@@ -34,10 +34,10 @@ $rows = $pdo->query("SELECT user_id, username, email, role, created_at FROM user
           <td><span class="badge badge-<?= $r['role'] === 'admin' ? 'active' : 'expired' ?>"><?= $r['role'] ?></span></td>
           <td><?= htmlspecialchars($r['created_at']) ?></td>
           <td class="text-end">
-            <a href="edit.php?id=<?= $r['user_id'] ?>" class="btn btn-sm btn-outline-light"><i class="fa-solid fa-pen"></i></a>
+            <a href="edit.php?id=<?= $r['user_id'] ?>" class="btn btn-sm btn-light"><i class="fa-solid fa-pen"></i></a>
             <form method="post" action="delete.php" class="d-inline" data-confirm="Delete this user?">
               <input type="hidden" name="id" value="<?= $r['user_id'] ?>">
-              <button class="btn btn-sm btn-outline-light" <?= $r['user_id'] == current_user()['id'] ? 'disabled' : '' ?>><i class="fa-solid fa-trash"></i></button>
+              <button class="btn btn-sm btn-light" <?= $r['user_id'] == current_user()['id'] ? 'disabled' : '' ?>><i class="fa-solid fa-trash"></i></button>
             </form>
           </td>
         </tr>

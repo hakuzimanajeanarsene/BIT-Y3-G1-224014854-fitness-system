@@ -36,10 +36,10 @@ $rows = $pdo->query("
           <td><?= number_format($r['amount'],2) ?></td>
           <td><span class="badge badge-<?= $r['status'] ?>"><?= $r['status'] ?></span></td>
           <td class="text-end">
-            <a href="edit.php?id=<?= $r['subscription_id'] ?>" class="btn btn-sm btn-outline-light"><i class="fa-solid fa-pen"></i></a>
+            <a href="edit.php?id=<?= $r['subscription_id'] ?>" class="btn btn-sm btn-light"><i class="fa-solid fa-pen"></i></a>
             <form method="post" action="delete.php" class="d-inline" data-confirm="Delete this subscription?">
               <input type="hidden" name="id" value="<?= $r['subscription_id'] ?>">
-              <button class="btn btn-sm btn-outline-light"><i class="fa-solid fa-trash"></i></button>
+              <button class="btn btn-sm btn-light"><i class="fa-solid fa-trash"></i></button>
             </form>
           </td>
         </tr>

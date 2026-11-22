@@ -28,10 +28,10 @@ $rows = $pdo->query("SELECT * FROM trainers ORDER BY trainer_id DESC")->fetchAll
           <td><?= htmlspecialchars($r['specialization']) ?></td>
           <td><?= htmlspecialchars($r['phone']) ?></td>
           <td class="text-end">
-            <a href="edit.php?id=<?= $r['trainer_id'] ?>" class="btn btn-sm btn-outline-light"><i class="fa-solid fa-pen"></i></a>
+            <a href="edit.php?id=<?= $r['trainer_id'] ?>" class="btn btn-sm btn-light"><i class="fa-solid fa-pen"></i></a>
             <form method="post" action="delete.php" class="d-inline" data-confirm="Delete this trainer?">
               <input type="hidden" name="id" value="<?= $r['trainer_id'] ?>">
-              <button class="btn btn-sm btn-outline-light"><i class="fa-solid fa-trash"></i></button>
+              <button class="btn btn-sm btn-light"><i class="fa-solid fa-trash"></i></button>
             </form>
           </td>
         </tr>
