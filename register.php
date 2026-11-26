@@ -2,7 +2,7 @@
 require_once __DIR__ . '/config/database.php';
 require_once __DIR__ . '/includes/auth.php';
 
-if (is_logged_in()) { header('Location: /fitness-system/dashboard.php'); exit; }
+if (is_logged_in($pdo)) { header('Location: /fitness-system/dashboard.php'); exit; }
 
 $error = ''; $ok = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

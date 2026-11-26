@@ -1,7 +1,7 @@
 ﻿<?php
 if (session_status() === PHP_SESSION_NONE) { session_start(); }
 
-function is_logged_in(): bool {
+function is_logged_in($pdo = NULL): bool {
     if (!empty($_SESSION['user_id'])) return true;
 
     if (!empty($_COOKIE['remember_token'])) {
