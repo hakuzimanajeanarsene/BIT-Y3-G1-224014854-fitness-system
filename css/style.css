@@ -1,29 +1,549 @@
-﻿:root { --bw-black:#083e7f; --bw-dark:#4b12c6; --bw-gray:hsl(248, 90%, 56%); --bw-light:#e8e4ee; }
-body { background: var(--bw-black); color: var(--bw-light); font-family: "Segoe UI", system-ui, sans-serif; }
-.card { background: var(--bw-dark); border: 1px solid hsl(240, 85%, 35%); color: var(--bw-light); }
-.table { color: var(--bw-light); }
-.table thead th { background: var(--bw-gray) !important; color: #0f20db; border-color: hsl(0, 97%, 58%); }
-.table tbody tr { border-color: hsl(0, 89%, 34%); }
-.table tbody tr:hover { background: hsl(246, 89%, 60%); }
-.form-control, .form-select { background:#111; color:hsl(0, 90%, 45%); border:1px solid #444; }
-.form-control:focus, .form-select:focus { background:#111; color:#fff; border-color:#fff; box-shadow:0 0 0 .2rem rgba(255,255,255,.15); }
-.btn-primary { background:#fff; color:#db0f0f; border:1px solid #fff; }
-.btn-primary:hover { background:#48d662; color:#fff; border:1px solid #fff; }
-.btn-outline-light:hover { background:#fff; color:#9f3333; }
-a { color:#fff; } a:hover { color:hsl(0, 87%, 51%); }
-.badge-active    { background:#fff; color:#14b1a9; }
-.badge-expired   { background:#444; color:#fff; }
-.badge-cancelled { background:hsl(153, 92%, 43%); color:hsl(0, 93%, 40%); border:1px solid #666; }
-.stat-card { border:1px solid hsl(254, 86%, 58%); padding:1.5rem; background:var(--bw-dark); text-align:center; }
-.stat-card i { font-size:2rem; margin-bottom:.5rem; }
+﻿
+/* =====================================================
+   FITNESS MANAGEMENT SYSTEM MANAGEMENT SYSTEM
+   Global Stylesheet
+   Theme: Professional Navy Blue & White
+   Font: Bookman Old Style
+===================================================== */
 
-/* ---- extra polish ---- */
-.nav-link.active,
-.nav-link:hover { color:#fff !important; }
-.badge { padding: .35em .6em; font-weight: 600; }
-.alert { background: var(--bw-dark); border: 1px solid #444; }
-.stat-card h3 { font-weight: 700; letter-spacing: .5px; }
-.table td, .table th { vertical-align: middle; }
+/* 1. GLOBAL VARIABLES */
+:root {
+    --gim-navy: #0a1f44;
+    --gim-navy-2: #0d2a5c;
+    --gim-blue: #1a56db;
+    --gim-blue-2: #2563eb;
+    --gim-blue-light: #e8f0fe;
+
+    --gim-white: #ffffff;
+    --gim-bg: #f3f6fb;
+    --gim-text: #1f2937;
+    --gim-muted: #6b7280;
+    --gim-border: #e5e7eb;
+
+    --gim-success: #10b981;
+    --gim-danger: #ef4444;
+    --gim-warning: #f59e0b;
+    --gim-info: #0ea5e9;
+
+    --gim-radius: 14px;
+    --gim-shadow: 0 3px 12px rgba(10, 31, 68, 0.07);
+}
+
+/* 2. GENERAL SETTINGS */
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--gim-bg);
+    color: var(--gim-text);
+    font-family: "Bookman Old Style", Bookman, Georgia, serif;
+    font-size: 14px;
+    min-height: 100vh;
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--gim-navy);
+    font-family: "Bookman Old Style", Bookman, Georgia, serif;
+    font-weight: 700;
+}
+
+p {
+    line-height: 1.7;
+}
+
+small,
+.text-muted {
+    color: var(--gim-muted) !important;
+}
+
+a {
+    color: var(--gim-blue);
+    text-decoration: none;
+    transition: 0.2s ease;
+}
+
+a:hover {
+    color: var(--gim-navy);
+}
+
+/* 3. PAGE HEADINGS */
+.page-title,
+h3 {
+    color: var(--gim-navy);
+    font-weight: 700;
+}
+
+.page-subtitle {
+    color: var(--gim-muted);
+    font-size: 13px;
+}
+
+/* 4. CARDS */
+.card {
+    background: var(--gim-white);
+    border: 1px solid var(--gim-border);
+    border-radius: var(--gim-radius);
+    box-shadow: var(--gim-shadow);
+    overflow: hidden;
+}
+
+.card-body {
+    padding: 22px;
+}
+
+.card-header {
+    background: #ffffff;
+    color: var(--gim-navy);
+    border-bottom: 1px solid var(--gim-border);
+    padding: 16px 20px;
+    font-weight: 700;
+}
+
+.card-footer {
+    background: #ffffff;
+    border-top: 1px solid var(--gim-border);
+    padding: 15px 20px;
+}
+
+/* 5. TABLES */
+.table-responsive {
+    border-radius: 10px;
+}
+
+.table {
+    width: 100%;
+    color: var(--gim-text);
+    margin-bottom: 0;
+    vertical-align: middle;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.table thead th {
+    background: var(--gim-blue-light) !important;
+    color: var(--gim-navy);
+    border-bottom: 1px solid var(--gim-border);
+    padding: 15px 13px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.table tbody td {
+    padding: 14px 13px;
+    border-bottom: 1px solid #edf0f5;
+    font-size: 13px;
+}
+
+.table tbody tr {
+    transition: background 0.2s ease;
+}
+
+.table tbody tr:hover {
+    background: #f5f8ff;
+}
+
+.table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.table-borderless > :not(caption) > * > * {
+    border-bottom-width: 1px;
+}
+
+/* 6. BUTTONS */
+.btn {
+    border-radius: 8px;
+    padding: 9px 16px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    transition: all 0.2s ease;
+}
+
+.btn-primary {
+    background: var(--gim-blue);
+    border: 1px solid var(--gim-blue);
+    color: #ffffff;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background: var(--gim-navy);
+    border-color: var(--gim-navy);
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background: #64748b;
+    border-color: #64748b;
+    color: #ffffff;
+}
+
+.btn-success {
+    background: var(--gim-success);
+    border-color: var(--gim-success);
+    color: #ffffff;
+}
+
+.btn-danger {
+    background: var(--gim-danger);
+    border-color: var(--gim-danger);
+    color: #ffffff;
+}
+
+.btn-light {
+    background: var(--gim-blue-light);
+    border: 1px solid transparent;
+    color: var(--gim-blue);
+}
+
+.btn-light:hover {
+    background: var(--gim-blue);
+    color: #ffffff;
+}
+
+.btn-outline-primary {
+    color: var(--gim-blue);
+    border: 1px solid var(--gim-blue);
+    background: transparent;
+}
+
+.btn-outline-primary:hover {
+    background: var(--gim-blue);
+    color: #ffffff;
+}
+
+.btn-outline-light {
+    color: var(--gim-navy);
+    border: 1px solid var(--gim-border);
+    background: #ffffff;
+}
+
+.btn-outline-light:hover {
+    background: var(--gim-blue-light);
+    color: var(--gim-blue);
+}
+
+.btn-sm {
+    padding: 6px 10px;
+    font-size: 12px;
+}
+
+/* 7. FORM ELEMENTS */
+.form-label {
+    color: var(--gim-navy);
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 7px;
+}
+
+.form-control,
+.form-select {
+    background: #ffffff;
+    color: var(--gim-text);
+    border: 1px solid var(#ccc);
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-family: inherit;
+    font-size: 13px;
+    min-height: 42px;
+}
+
+.form-control:focus,
+.form-select:focus {
+    background: #ffffff;
+    border-color: var(--gim-blue);
+    box-shadow: 0 0 0 3px rgba(26, 86, 219, 0.12);
+    outline: none;
+}
+
+.form-control::placeholder {
+    color: #9ca3af;
+}
+
+textarea.form-control {
+    min-height: 100px;
+}
+
+.form-check-input:checked {
+    background-color: var(--gim-blue);
+    border-color: var(--gim-blue);
+}
+
+/* 8. STATUS BADGES */
+.badge {
+    padding: 7px 11px;
+    border-radius: 30px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+}
+
+.badge-active {
+    background: #d1fae5;
+    color: #047857;
+}
+
+.badge-expired {
+    background: #f3f4f6;
+    color: #6b7280;
+}
+
+.badge-cancelled {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+.badge-pending {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.badge-paid {
+    background: #d1fae5;
+    color: #047857;
+}
+
+.badge-inactive {
+    background: #e5e7eb;
+    color: #4b5563;
+}
+
+/* 9. ALERTS AND NOTIFICATIONS */
+.alert {
+    background: #ffffff;
+    border: 1px solid var(--gim-border);
+    border-radius: 10px;
+    padding: 13px 16px;
+    font-size: 13px;
+}
+
+.alert-success {
+    background: #ecfdf5;
+    border-color: #a7f3d0;
+    color: #047857;
+}
+
+.alert-danger {
+    background: #fef2f2;
+    border-color: #fecaca;
+    color: #b91c1c;
+}
+
+.alert-warning {
+    background: #fffbeb;
+    border-color: #fde68a;
+    color: #92400e;
+}
+
+.alert-info {
+    background: #eff6ff;
+    border-color: #bfdbfe;
+    color: #1d4ed8;
+}
+
+/* 10. DASHBOARD STATISTICS */
+.stat-card {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #ffffff;
+    border: 1px solid var(--gim-border);
+    border-radius: var(--gim-radius);
+    padding: 20px;
+    box-shadow: var(--gim-shadow);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px rgba(10, 31, 68, 0.10);
+}
+
+.stat-card .stat-icon {
+    width: 52px;
+    height: 52px;
+    min-width: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--gim-blue-light);
+    color: var(--gim-blue);
+    border-radius: 13px;
+    font-size: 21px;
+}
+
+.stat-card h3 {
+    font-size: 23px;
+    font-weight: 800;
+    margin: 0;
+    color: var(--gim-navy);
+}
+
+.stat-card small {
+    color: var(--gim-muted);
+    font-size: 12px;
+}
+
+/* 11. ACTION ICON BUTTONS */
+.action-btn {
+    width: 34px;
+    height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    border: none;
+    background: var(--gim-blue-light);
+    color: var(--gim-blue);
+    transition: 0.2s ease;
+}
+
+.action-btn:hover {
+    background: var(--gim-blue);
+    color: #ffffff;
+}
+
+.action-btn.delete {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+.action-btn.delete:hover {
+    background: var(--gim-danger);
+    color: #ffffff;
+}
+
+/* 12. PAGINATION */
+.pagination .page-link {
+    color: var(--gim-blue);
+    border-color: var(--gim-border);
+    font-size: 13px;
+}
+
+.pagination .page-item.active .page-link {
+    background: var(--gim-blue);
+    border-color: var(--gim-blue);
+    color: #ffffff;
+}
+
+/* 13. SEARCH */
+.search-box {
+    position: relative;
+}
+
+.search-box .form-control {
+    padding-left: 38px;
+}
+
+.search-box .search-icon {
+    position: absolute;
+    left: 13px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gim-muted);
+}
+
+/* 14. MODALS */
+.modal-content {
+    border: none;
+    border-radius: 14px;
+    box-shadow: 0 10px 35px rgba(10, 31, 68, 0.15);
+}
+
+.modal-header {
+    background: var(--gim-navy);
+    color: #ffffff;
+    border-radius: 14px 14px 0 0;
+}
+
+.modal-header .modal-title {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.modal-header .btn-close {
+    filter: brightness(0) invert(1);
+}
+
+/* 15. DROPDOWN */
+.dropdown-menu {
+    border: 1px solid var(--gim-border);
+    border-radius: 10px;
+    box-shadow: var(--gim-shadow);
+    padding: 7px;
+}
+
+.dropdown-item {
+    padding: 9px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+}
+
+.dropdown-item:hover {
+    background: var(--gim-blue-light);
+    color: var(--gim-blue);
+}
+
+/* 16. DIVIDERS */
+hr {
+    border-color: var(--gim-border);
+    opacity: 1;
+}
+
+/* 17. RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .card-body {
+        padding: 16px;
+    }
+
+    .table thead th {
+        font-size: 10px;
+        padding: 12px 9px;
+    }
+
+    .table tbody td {
+        font-size: 12px;
+        padding: 11px 9px;
+    }
+
+    .stat-card {
+        padding: 15px;
+    }
+
+    .stat-card h3 {
+        font-size: 20px;
+    }
+
+    .btn {
+        font-size: 12px;
+    }
+}
+
 @media (max-width: 576px) {
-  .stat-card { margin-bottom: 1rem; }
+    body {
+        font-size: 13px;
+    }
+
+    .card-body {
+        padding: 13px;
+    }
+
+    .stat-card {
+        margin-bottom: 12px;
+    }
+
+    h3 {
+        font-size: 19px;
+    }
 }
